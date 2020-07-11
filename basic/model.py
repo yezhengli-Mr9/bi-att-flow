@@ -196,7 +196,7 @@ class Model(object):
     def _build_loss(self):
         config = self.config
         JX = tf.shape(self.x)[2]
-        M = tf.shape(self.x)[1]
+        M = tf.shape(self.x)[1] #yezheng: what is M? config.max_num_sents 
         JQ = tf.shape(self.q)[1]
         loss_mask = tf.reduce_max(tf.cast(self.q_mask, 'float'), 1)
         losses = tf.nn.softmax_cross_entropy_with_logits(
